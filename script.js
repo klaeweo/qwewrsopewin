@@ -13,18 +13,16 @@ function addItem(boxNumber) {
     const itemText = input.value.trim();
     if (itemText === '') return;
 
-    const currentItems = list.getElementsByTagName('li');
-    if (currentItems.length >= 19) {
-        alert('Maximum of 19 items per box.');
-        const inputGroup = document.getElementById(`input-group${boxNumber}`);
-        inputGroup.style.display = 'none';
-        return;
-    }
-
     const listItem = createListItem(itemText, false);
     list.appendChild(listItem);
     saveItem(boxNumber, itemText, false);
     input.value = '';
+
+    const currentItems = list.getElementsByTagName('li');
+    if (currentItems.length === 19) {
+        const inputGroup = document.getElementById(`input-group${boxNumber}`);
+        inputGroup.style.display = 'none';
+    }
 }
 
 function createListItem(text, completed) {
