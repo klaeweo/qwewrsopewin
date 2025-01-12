@@ -14,8 +14,8 @@ function addItem(boxNumber) {
     if (itemText === '') return;
 
     const currentItems = list.getElementsByTagName('li');
-    if (currentItems.length >= 20) {
-        alert('Maximum of 20 items per box.');
+    if (currentItems.length >= 19) {
+        alert('Maximum of 19 items per box.');
         const inputGroup = document.getElementById(`input-group${boxNumber}`);
         inputGroup.style.display = 'none';
         return;
@@ -82,7 +82,7 @@ function loadItems(boxNumber) {
     });
 
     const inputGroup = document.getElementById(`input-group${boxNumber}`);
-    if (items.length >= 20) {
+    if (items.length >= 19) {
         inputGroup.style.display = 'none';
     } else {
         inputGroup.style.display = 'flex';
